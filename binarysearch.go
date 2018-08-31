@@ -46,4 +46,3 @@ func test_binarysearch() {
 	fmt.Println("Success!")
 	return
 }
-
