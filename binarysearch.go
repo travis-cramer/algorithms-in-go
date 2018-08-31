@@ -33,11 +33,20 @@ func binarysearch(array []string, target string) (index int) {
 
 
 func test_binarysearch() {
-	// tests binarysearch, output should be 0...(len(array) - 1)
-	array := [10]string{"apple", "banana", "carrot", "danish", "energy", "fun", "greatness", "hairy", "igneous", "jim"}
-	for i := 0; i < len(array); i++ {
+	// tests binarysearch
+	array1 := [10]string{"apple", "banana", "carrot", "danish", "energy", "fun", "greatness", "hairy", "igneous", "jim"}
+	for i := 0; i < len(array1); i++ {
 		var index int
-		index = binarysearch(array[:], array[i])
+		index = binarysearch(array1[:], array1[i])
+		if index != i {
+			fmt.Println("Failed.")
+			return
+		}
+	}
+	array2 := [9]string{"apple", "banana", "carrot", "danish", "energy", "fun", "greatness", "hairy", "igneous"}
+	for i := 0; i < len(array2); i++ {
+		var index int
+		index = binarysearch(array2[:], array2[i])
 		if index != i {
 			fmt.Println("Failed.")
 			return
