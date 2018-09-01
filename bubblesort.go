@@ -5,14 +5,14 @@ import (
 )
 
 func main() {
-	array := [5]int{5, 4, 3, 2, 1}
+	array := []int{5, 4, 3, 2, 1, 13, 12, 14, 3, 4, 4, 4, 8, 7, 4, 9}
 	fmt.Println(array)
 	fmt.Println("---------->")
-	array = bubblesort(array)
+	array = bubblesort(array[:])
 	fmt.Println(array)
 }
 
-func bubblesort(A [5]int) [5]int {
+func bubblesort(A []int) []int {
 	var sorted bool  //checks whether array is sorted or not
 	for !sorted {
 		var i int  //index
