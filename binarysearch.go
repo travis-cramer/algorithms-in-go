@@ -1,16 +1,8 @@
-package main
+package algorithms
 
-import (
-	"fmt"
-)
+import "fmt"
 
-
-func main() {
-	test_binarysearch()
-}
-
-
-func binarysearch(array []string, target string) (index int) {
+func Binarysearch(array []string, target string) (index int) {
 	var L int
 	L = 0
 	var R int
@@ -31,13 +23,12 @@ func binarysearch(array []string, target string) (index int) {
 	return
 }
 
-
 func test_binarysearch() {
 	// tests binarysearch
 	array1 := [10]string{"apple", "banana", "carrot", "danish", "energy", "fun", "greatness", "hairy", "igneous", "jim"}
 	for i := 0; i < len(array1); i++ {
 		var index int
-		index = binarysearch(array1[:], array1[i])
+		index = Binarysearch(array1[:], array1[i])
 		if index != i {
 			fmt.Println("Failed.")
 			return
@@ -46,7 +37,7 @@ func test_binarysearch() {
 	array2 := [9]string{"apple", "banana", "carrot", "danish", "energy", "fun", "greatness", "hairy", "igneous"}
 	for i := 0; i < len(array2); i++ {
 		var index int
-		index = binarysearch(array2[:], array2[i])
+		index = Binarysearch(array2[:], array2[i])
 		if index != i {
 			fmt.Println("Failed.")
 			return
