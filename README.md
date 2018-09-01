@@ -6,4 +6,4 @@ My undergraduate degree was in Math and I didn't learn these fundamental CS algo
 Life-long learning for the win.
 
 # help me
-Feedback is appreciated. We are always noobs in life, but me more than others.
+Feedback is appreciated. We are all sometimes noobs in life, but me more than others.
