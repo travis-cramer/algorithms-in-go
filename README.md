@@ -7,7 +7,9 @@ recruiters mention "Data Structures and Algorithms".
 
 # Usage
 
-```import algorithms "github.com/travis-cramer/algorithms-in-go"```  
+```
+import algorithms "github.com/travis-cramer/algorithms-in-go"
+```  
 Of course, the `algorithms` variable name can be changed to whatever you like.
 
 There are currently 3 methods in this package:
@@ -17,7 +19,9 @@ There are currently 3 methods in this package:
 second. Returns the index (`int`) of the given string within the array.
 
 Note that in Go, we input arrays as arguments by slicing them. Ex:  
-```my_sorted_array = algorithms.Bubblesort(my_array[:])```
+```
+my_sorted_array = algorithms.Bubblesort(my_array[:])
+```
 
 # help me
 Feedback is appreciated. We are all sometimes noobs in life, but me more than others.

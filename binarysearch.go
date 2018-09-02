@@ -22,27 +22,3 @@ func Binarysearch(array []string, target string) (index int) {
 	}
 	return
 }
-
-func test_binarysearch() {
-	// tests binarysearch
-	array1 := [10]string{"apple", "banana", "carrot", "danish", "energy", "fun", "greatness", "hairy", "igneous", "jim"}
-	for i := 0; i < len(array1); i++ {
-		var index int
-		index = Binarysearch(array1[:], array1[i])
-		if index != i {
-			fmt.Println("Failed.")
-			return
-		}
-	}
-	array2 := [9]string{"apple", "banana", "carrot", "danish", "energy", "fun", "greatness", "hairy", "igneous"}
-	for i := 0; i < len(array2); i++ {
-		var index int
-		index = Binarysearch(array2[:], array2[i])
-		if index != i {
-			fmt.Println("Failed.")
-			return
-		}
-	}
-	fmt.Println("Success!")
-	return
-}
