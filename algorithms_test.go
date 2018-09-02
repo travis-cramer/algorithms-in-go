@@ -34,6 +34,22 @@ func TestInsertionsort(t *testing.T) {
 	}
 }
 
+func TestSelectionsort(t *testing.T) {
+	cases := []struct {
+		in, want []int
+	}{
+		{[]int{5, 4, 3, 2, 1}, []int{1, 2, 3, 4, 5}},
+	}
+	for _, c := range cases {
+		got := Selectionsort(c.in)
+		for i := 0; i < len(c.in); i++ {
+			if got[i] != c.want[i] {
+				t.Errorf("Selectionsort(%q) == %q, want %q", c.in, got, c.want)
+			}
+		}
+	}
+}
+
 func TestBinarysearch(t *testing.T) {
 	cases := []struct {
 		array []string; target string; index int
