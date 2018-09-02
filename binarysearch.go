@@ -19,3 +19,4 @@ func Binarysearch(array []string, target string) (index int) {
 		index = middle
 	}
 	return
+}
