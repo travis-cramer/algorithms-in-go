@@ -5,7 +5,7 @@ This is a package of misc. algorithms that I've coded in Go.
 I'm undertaking this project to learn Go and study the typical algorithms that people think of when
 recruiters mention "Data Structures and Algorithms".
 
-# Usage
+# usage
 
 ```
 import algorithms "github.com/travis-cramer/algorithms-in-go"
@@ -24,4 +24,5 @@ my_sorted_array = algorithms.Bubblesort(my_array[:])
 ```
 
 # help me
-Feedback is appreciated. We are all sometimes noobs in life, but me more than others.
+Feedback is appreciated. If you notice anything wrong, something that I can improve on, or any way that I can more
+conform to the conventions of Golang, please let me know by opening an issue on this repo.
