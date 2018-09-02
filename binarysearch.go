@@ -1,7 +1,5 @@
 package algorithms
 
-import "fmt"
-
 func Binarysearch(array []string, target string) (index int) {
 	var L int
 	L = 0
@@ -21,4 +19,3 @@ func Binarysearch(array []string, target string) (index int) {
 		index = middle
 	}
 	return
-}
