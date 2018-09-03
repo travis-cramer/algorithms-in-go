@@ -13,6 +13,5 @@ func Insertionsort(A []int) []int {
 			}
 		}
 	}
-
 	return A
 }

@@ -50,6 +50,23 @@ func TestSelectionsort(t *testing.T) {
 	}
 }
 
+func TestMergesort(t *testing.T) {
+	cases := []struct {
+		in, want []int
+	}{
+		{[]int{5, 4, 3, 2, 1}, []int{1, 2, 3, 4, 5}},
+		{[]int{12, 5, 8, 3, 9, 100, 10, 11}, []int{3, 5, 8, 9, 10, 11, 12, 100}},
+	}
+	for _, c := range cases {
+		got := Mergesort(c.in)
+		for i := 0; i < len(c.in); i++ {
+			if got[i] != c.want[i] {
+				t.Errorf("Mergesort(%q) == %q, want %q", c.in, got, c.want)
+			}
+		}
+	}
+}
+
 func TestBinarysearch(t *testing.T) {
 	cases := []struct {
 		array []string; target string; index int

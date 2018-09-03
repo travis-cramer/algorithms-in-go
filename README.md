@@ -1,5 +1,7 @@
 # algorithms-in-go
-This is a package of misc. algorithms that I've coded in Go.
+This is a package of misc. algorithms that I've coded in Go. No other author's code was consulted in the writing of 
+these functions, just gifs demonstrating the procedure of the algorithm, such as this one for insertionsort:  
+https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif
 
 # why
 I'm undertaking this project to learn Go and study the typical algorithms that people think of when
