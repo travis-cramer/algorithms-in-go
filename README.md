@@ -13,10 +13,11 @@ import algorithms "github.com/travis-cramer/algorithms-in-go"
 ```
 Of course, the `algorithms` variable name can be changed to whatever you like.
 
-There are currently 4 methods in this package:
+There are currently 5 methods in this package:
 * `Bubblesort()`, which takes in an array of ints (`[]int`) and returns the same, sorted in numerical order.
 * `Insertionsort()`, same as `Bubblesort()`.
 * `Selectionsort()`, same as `Insertionsort()`.
+* `Mergesort()`, same as `Selectionsort()`.
 * `Binarysearch()`, which takes in an array of strings (`[]string`) **sorted in alphabetical order** as the first 
 argument and a `string` (that is an element of the array) as the second. Returns the index (`int`) of the given 
 string within the array.
