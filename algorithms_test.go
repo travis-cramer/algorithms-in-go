@@ -83,3 +83,66 @@ func TestStringSearchers(t *testing.T) {
 		}
 	}
 }
+
+func BenchmarkQuicksort(b *testing.B) {
+	cases := []struct {
+		in, want []int
+	}{
+		{[]int{1}, []int{1}},
+		{[]int{2, 1}, []int{1, 2}},
+		{[]int{5, 4, 3, 2, 1}, []int{1, 2, 3, 4, 5}},
+		{[]int{5, -4, 3, -2, 1}, []int{-4, -2, 1, 3, 5}},
+		{[]int{5, -4, 3, 6, -2, 1}, []int{-4, -2, 1, 3, 5, 6}},
+		{[]int{12, 5, 8, 3, 9, 100, 10, 11}, []int{3, 5, 8, 9, 10, 11, 12, 100}},
+	}
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		for _, c := range cases {
+			in := make([]int, len(c.in))
+			copy(in, c.in)
+			Quicksort(in)
+		}
+	}
+}
+
+func BenchmarkBubblesort(b *testing.B) {
+	cases := []struct {
+		in, want []int
+	}{
+		{[]int{1}, []int{1}},
+		{[]int{2, 1}, []int{1, 2}},
+		{[]int{5, 4, 3, 2, 1}, []int{1, 2, 3, 4, 5}},
+		{[]int{5, -4, 3, -2, 1}, []int{-4, -2, 1, 3, 5}},
+		{[]int{5, -4, 3, 6, -2, 1}, []int{-4, -2, 1, 3, 5, 6}},
+		{[]int{12, 5, 8, 3, 9, 100, 10, 11}, []int{3, 5, 8, 9, 10, 11, 12, 100}},
+	}
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		for _, c := range cases {
+			in := make([]int, len(c.in))
+			copy(in, c.in)
+			Quicksort(in)
+		}
+	}
+}
+
+func BenchmarkMergesort(b *testing.B) {
+	cases := []struct {
+		in, want []int
+	}{
+		{[]int{1}, []int{1}},
+		{[]int{2, 1}, []int{1, 2}},
+		{[]int{5, 4, 3, 2, 1}, []int{1, 2, 3, 4, 5}},
+		{[]int{5, -4, 3, -2, 1}, []int{-4, -2, 1, 3, 5}},
+		{[]int{5, -4, 3, 6, -2, 1}, []int{-4, -2, 1, 3, 5, 6}},
+		{[]int{12, 5, 8, 3, 9, 100, 10, 11}, []int{3, 5, 8, 9, 10, 11, 12, 100}},
+	}
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		for _, c := range cases {
+			in := make([]int, len(c.in))
+			copy(in, c.in)
+			Mergesort(in)
+		}
+	}
+}

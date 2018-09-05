@@ -23,7 +23,7 @@ func QuicksortRecursive(A []int, iBegin int, iEnd int) {
 
 func pivotsort(A []int, iBegin int, iEnd int) (iPivot int) {
 	/* Takes in a subarray, sorts it such that all elements greater than the pivot element are to the right of the pivot
-	and all elements less than the pivot element are to the left of the pivot element.
+	element and all elements less than the pivot element are to the left of the pivot element.
 	The last element, A[iEnd], is assigned as the pivot element.
 	NOTE: iBegin and iEnd are both inclusive. */
 	i := iBegin
