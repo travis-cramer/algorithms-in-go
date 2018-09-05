@@ -1,7 +1,7 @@
 package algorithms
 
 func Quicksort(A []int) []int {
-	QuicksortRecursive(A[:], 0, len(A) - 1)
+	QuicksortRecursive(A[:], 0, len(A)-1)
 	return A
 }
 
@@ -58,7 +58,7 @@ func pivotsort(A []int, iBegin int, iEnd int) (iPivot int) {
 			temp := A[j+1]
 			A[j+1] = A[iEnd]
 			A[iEnd] = temp
-			iPivot = j+1
+			iPivot = j + 1
 		}
 	} else if j < i {
 		// swap A[i] and A[iEnd]
