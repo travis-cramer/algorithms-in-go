@@ -1,18 +1,57 @@
 package algorithms
 
-import "testing"
+import (
+	"testing"
+	"math/rand"
+)
 
-func TestIntSorters(t *testing.T) {
-	cases := []struct {
+var big_array [1000]int
+var bigger_array [10000]int
+//var biggest_array [100000]int
+
+var big_array_copy [1000]int
+var bigger_array_copy [10000]int
+//var biggest_array_copy [100000]int
+
+var cases []struct{in, want []int}
+
+func init() {
+	populateArrayWithRandInts(big_array[:])
+	populateArrayWithRandInts(bigger_array[:])
+	//populateArrayWithRandInts(biggest_array[:])
+
+	copyarrayintoarray(big_array[:], big_array_copy[:])
+	copyarrayintoarray(bigger_array[:], bigger_array_copy[:])
+	//copyarrayintoarray(biggest_array[:], biggest_array_copy[:])
+
+	cases = []struct {
 		in, want []int
 	}{
+		{big_array[:], Quicksort(big_array_copy[:])},
+		{bigger_array[:], Quicksort(bigger_array_copy[:])},
 		{[]int{1}, []int{1}},
 		{[]int{2, 1}, []int{1, 2}},
-		{[]int{5, 4, 3, 2, 1}, []int{1, 2, 3, 4, 5}},
-		{[]int{5, -4, 3, -2, 1}, []int{-4, -2, 1, 3, 5}},
-		{[]int{5, -4, 3, 6, -2, 1}, []int{-4, -2, 1, 3, 5, 6}},
-		{[]int{12, 5, 8, 3, 9, 100, 10, 11}, []int{3, 5, 8, 9, 10, 11, 12, 100}},
+		{[]int{3, 2, 1}, []int{1, 2, 3}},
+		{[]int{12, 3, -2, 8, 9, 1, 6}, []int{-2, 1, 3, 6, 8, 9, 12}},
 	}
+}
+
+func populateArrayWithRandInts(A []int) {
+	rand.Seed(42)
+	for i := 0; i < len(A); i++ {
+		A[i] = rand.Intn(len(A))
+	}
+}
+
+func copyarrayintoarray(A []int, B []int) {
+	for i := 0; i < len(A); i++ {
+		B[i] = A[i]
+	}
+}
+
+func TestIntSorters(t *testing.T) {
+
+	// Bubblesort
 	for _, c := range cases {
 		in := make([]int, len(c.in))
 		copy(in, c.in)
@@ -23,6 +62,8 @@ func TestIntSorters(t *testing.T) {
 			}
 		}
 	}
+
+	// Insertionsort
 	for _, c := range cases {
 		in := make([]int, len(c.in))
 		copy(in, c.in)
@@ -33,6 +74,7 @@ func TestIntSorters(t *testing.T) {
 			}
 		}
 	}
+	//Selectionsort
 	for _, c := range cases {
 		in := make([]int, len(c.in))
 		copy(in, c.in)
@@ -43,6 +85,8 @@ func TestIntSorters(t *testing.T) {
 			}
 		}
 	}
+
+	//Mergesort
 	for _, c := range cases {
 		in := make([]int, len(c.in))
 		copy(in, c.in)
@@ -53,6 +97,8 @@ func TestIntSorters(t *testing.T) {
 			}
 		}
 	}
+
+	//Quicksort
 	for _, c := range cases {
 		in := make([]int, len(c.in))
 		copy(in, c.in)
@@ -84,65 +130,57 @@ func TestStringSearchers(t *testing.T) {
 	}
 }
 
-func BenchmarkQuicksort(b *testing.B) {
-	cases := []struct {
-		in, want []int
-	}{
-		{[]int{1}, []int{1}},
-		{[]int{2, 1}, []int{1, 2}},
-		{[]int{5, 4, 3, 2, 1}, []int{1, 2, 3, 4, 5}},
-		{[]int{5, -4, 3, -2, 1}, []int{-4, -2, 1, 3, 5}},
-		{[]int{5, -4, 3, 6, -2, 1}, []int{-4, -2, 1, 3, 5, 6}},
-		{[]int{12, 5, 8, 3, 9, 100, 10, 11}, []int{3, 5, 8, 9, 10, 11, 12, 100}},
-	}
+func BenchmarkBubblesort(b *testing.B) {
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		for _, c := range cases {
 			in := make([]int, len(c.in))
 			copy(in, c.in)
-			Quicksort(in)
+			Bubblesort(in)
 		}
 	}
 }
 
-func BenchmarkBubblesort(b *testing.B) {
-	cases := []struct {
-		in, want []int
-	}{
-		{[]int{1}, []int{1}},
-		{[]int{2, 1}, []int{1, 2}},
-		{[]int{5, 4, 3, 2, 1}, []int{1, 2, 3, 4, 5}},
-		{[]int{5, -4, 3, -2, 1}, []int{-4, -2, 1, 3, 5}},
-		{[]int{5, -4, 3, 6, -2, 1}, []int{-4, -2, 1, 3, 5, 6}},
-		{[]int{12, 5, 8, 3, 9, 100, 10, 11}, []int{3, 5, 8, 9, 10, 11, 12, 100}},
-	}
+func BenchmarkSelectionsort(b *testing.B) {
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		for _, c := range cases {
 			in := make([]int, len(c.in))
 			copy(in, c.in)
-			Quicksort(in)
+			Selectionsort(in)
+		}
+	}
+}
+
+func BenchmarkInsertionsort(b *testing.B) {
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		for _, c := range cases {
+			in := make([]int, len(c.in))
+			copy(in, c.in)
+			Insertionsort(in)
 		}
 	}
 }
 
 func BenchmarkMergesort(b *testing.B) {
-	cases := []struct {
-		in, want []int
-	}{
-		{[]int{1}, []int{1}},
-		{[]int{2, 1}, []int{1, 2}},
-		{[]int{5, 4, 3, 2, 1}, []int{1, 2, 3, 4, 5}},
-		{[]int{5, -4, 3, -2, 1}, []int{-4, -2, 1, 3, 5}},
-		{[]int{5, -4, 3, 6, -2, 1}, []int{-4, -2, 1, 3, 5, 6}},
-		{[]int{12, 5, 8, 3, 9, 100, 10, 11}, []int{3, 5, 8, 9, 10, 11, 12, 100}},
-	}
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		for _, c := range cases {
 			in := make([]int, len(c.in))
 			copy(in, c.in)
 			Mergesort(in)
+		}
+	}
+}
+
+func BenchmarkQuicksort(b *testing.B) {
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		for _, c := range cases {
+			in := make([]int, len(c.in))
+			copy(in, c.in)
+			Quicksort(in)
 		}
 	}
 }
