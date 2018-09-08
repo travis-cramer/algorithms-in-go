@@ -9,9 +9,14 @@ recruiters mention "Data Structures and Algorithms".
 
 # usage
 ```
+go get "github.com/travis-cramer/algorithms-in-go"
+```
+Use Golang's `go get` command to clone this repo into your local go workspace. Now, you can import it into your own go files 
+with:
+```
 import algorithms "github.com/travis-cramer/algorithms-in-go"
 ```
-Of course, the `algorithms` variable name can be changed to whatever you like.
+Of course, the `algorithms` package alias can be changed to whatever you like.
 
 There are currently 6 algorithms in this package:
 * `Bubblesort()`, which takes in an array of ints (`[]int`) and returns the same, sorted in numerical order.
