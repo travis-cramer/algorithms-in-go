@@ -1,8 +1,9 @@
-package algorithms
+package algorithms_test
 
 import (
 	"testing"
 	"math/rand"
+	algorithms "github.com/travis-cramer/algorithms-in-go"
 )
 
 var big_array [1000]int
@@ -27,8 +28,8 @@ func init() {
 	cases = []struct {
 		in, want []int
 	}{
-		{big_array[:], Quicksort(big_array_copy[:])},
-		{bigger_array[:], Quicksort(bigger_array_copy[:])},
+		{big_array[:], algorithms.Quicksort(big_array_copy[:])},
+		{bigger_array[:], algorithms.Quicksort(bigger_array_copy[:])},
 		{[]int{1}, []int{1}},
 		{[]int{2, 1}, []int{1, 2}},
 		{[]int{3, 2, 1}, []int{1, 2, 3}},
@@ -55,7 +56,7 @@ func TestIntSorters(t *testing.T) {
 	for _, c := range cases {
 		in := make([]int, len(c.in))
 		copy(in, c.in)
-		got := Bubblesort(in)
+		got := algorithms.Bubblesort(in)
 		for i := 0; i < len(in); i++ {
 			if got[i] != c.want[i] {
 				t.Errorf("Bubblesort(%q) == %q, want %q", c.in, got, c.want)
@@ -67,7 +68,7 @@ func TestIntSorters(t *testing.T) {
 	for _, c := range cases {
 		in := make([]int, len(c.in))
 		copy(in, c.in)
-		got := Insertionsort(in)
+		got := algorithms.Insertionsort(in)
 		for i := 0; i < len(in); i++ {
 			if got[i] != c.want[i] {
 				t.Errorf("Insertionsort(%q) == %q, want %q", c.in, got, c.want)
@@ -78,7 +79,7 @@ func TestIntSorters(t *testing.T) {
 	for _, c := range cases {
 		in := make([]int, len(c.in))
 		copy(in, c.in)
-		got := Selectionsort(in)
+		got := algorithms.Selectionsort(in)
 		for i := 0; i < len(in); i++ {
 			if got[i] != c.want[i] {
 				t.Errorf("Selectionsort(%q) == %q, want %q", c.in, got, c.want)
@@ -90,7 +91,7 @@ func TestIntSorters(t *testing.T) {
 	for _, c := range cases {
 		in := make([]int, len(c.in))
 		copy(in, c.in)
-		got := Mergesort(in)
+		got := algorithms.Mergesort(in)
 		for i := 0; i < len(in); i++ {
 			if got[i] != c.want[i] {
 				t.Errorf("Mergesort(%q) == %q, want %q", c.in, got, c.want)
@@ -102,7 +103,7 @@ func TestIntSorters(t *testing.T) {
 	for _, c := range cases {
 		in := make([]int, len(c.in))
 		copy(in, c.in)
-		got := Quicksort(in)
+		got := algorithms.Quicksort(in)
 		for i := 0; i < len(in); i++ {
 			if got[i] != c.want[i] {
 				t.Errorf("Quicksort(%q) == %q, want %q", c.in, got, c.want)
@@ -123,7 +124,7 @@ func TestStringSearchers(t *testing.T) {
 		{[]string{"apple", "banana", "cherry", "danish", "energy", "fun", "greatness", "hairy"}, "fun", 5},
 	}
 	for _, c := range cases {
-		got := Binarysearch(c.array, c.target)
+		got := algorithms.Binarysearch(c.array, c.target)
 		if got != c.index {
 			t.Errorf("Binarysearch(%q, %q) == %q, want %q", c.array, c.target, got, c.index)
 		}
@@ -136,7 +137,7 @@ func BenchmarkBubblesort(b *testing.B) {
 		for _, c := range cases {
 			in := make([]int, len(c.in))
 			copy(in, c.in)
-			Bubblesort(in)
+			algorithms.Bubblesort(in)
 		}
 	}
 }
@@ -147,7 +148,7 @@ func BenchmarkSelectionsort(b *testing.B) {
 		for _, c := range cases {
 			in := make([]int, len(c.in))
 			copy(in, c.in)
-			Selectionsort(in)
+			algorithms.Selectionsort(in)
 		}
 	}
 }
@@ -158,7 +159,7 @@ func BenchmarkInsertionsort(b *testing.B) {
 		for _, c := range cases {
 			in := make([]int, len(c.in))
 			copy(in, c.in)
-			Insertionsort(in)
+			algorithms.Insertionsort(in)
 		}
 	}
 }
@@ -169,7 +170,7 @@ func BenchmarkMergesort(b *testing.B) {
 		for _, c := range cases {
 			in := make([]int, len(c.in))
 			copy(in, c.in)
-			Mergesort(in)
+			algorithms.Mergesort(in)
 		}
 	}
 }
@@ -180,7 +181,7 @@ func BenchmarkQuicksort(b *testing.B) {
 		for _, c := range cases {
 			in := make([]int, len(c.in))
 			copy(in, c.in)
-			Quicksort(in)
+			algorithms.Quicksort(in)
 		}
 	}
 }
