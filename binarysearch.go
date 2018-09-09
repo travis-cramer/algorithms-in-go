@@ -1,10 +1,8 @@
 package algorithms
 
 func Binarysearch(array []string, target string) (index int) {
-	var L int
-	L = 0
-	var R int
-	R = len(array) - 1
+	L := 0
+	R := len(array) - 1
 	var middle int
 	var done bool
 	for !done {
