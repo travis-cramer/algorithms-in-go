@@ -36,22 +36,19 @@ func merge(A []int, l int, m int, r int, B []int) {
 			if A[i] <= A[j] {
 				B[k] = A[i]
 				i++
-				k++
 			} else {
 				B[k] = A[j]
 				j++
-				k++
 			}
 			// if either A[l:m] or A[m:r] is all inserted, then insert the remains of the other slice
 		} else if i < m {
 			B[k] = A[i]
 			i++
-			k++
 		} else {
 			B[k] = A[j]
 			j++
-			k++
 		}
+		k++
 	}
 	// copy B[l:r] (sorted) into A[l:r] (unsorted)
 	copyarray(B[:], l, r, A[:])
