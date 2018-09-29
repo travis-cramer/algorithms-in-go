@@ -25,7 +25,7 @@ func Mergesort(A []int) []int {
 }
 
 func merge(A []int, l int, m int, r int, B []int) {
-	// merges and sorts A[l:m] and A[m:r] (which are already sorted) into B[l:r]
+	// merges and sorts A[l:m] and A[m:r] (which are already sorted) into A[l:r], B is a work array
 	// l, m, and r are left, middle, and right indexes
 	i := l // index running through A[l:m]
 	j := m // index running through A[m:r]
@@ -55,7 +55,7 @@ func merge(A []int, l int, m int, r int, B []int) {
 }
 
 func copyarray(A []int, l int, r int, B []int) {
-	// copies B[l:r] into A[l:r]
+	// copies A[l:r] into B[l:r]
 	// note r is exclusive
 	for i := l; i < r; i++ {
 		B[i] = A[i]
